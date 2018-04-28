@@ -1,11 +1,10 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+import Config from 'webpack-config';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+export default new Config().merge({
   entry: './client/index.js',
   output: {
-    path: __dirname + '/public',
-    filename: 'bundle.js'
+    path: __dirname + '/../public',
   },
   module: {
     rules: [
@@ -20,6 +19,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './client/index.html',
       inject: "body"
-    })
-  ]
-};
+    })]
+});
